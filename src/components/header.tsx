@@ -68,12 +68,21 @@ export default function Header() {
           </p>
         </div>
 
-        <Button href="#" variant="secondary" className="group mt-6 w-full">
+        <Button
+          href="/Chukwuma Ebube Resume.pdf"
+          download
+          variant="secondary"
+          className="group mt-6 w-full"
+        >
           Download CV
           <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
         </Button>
         <div className="mt-6 flex items-center justify-center gap-6">
-          <SocialLink href="https://twitter.com/ebubedev" aria-label="Follow on X" icon={XIcon} />
+          <SocialLink
+            href="https://twitter.com/ebubedev"
+            aria-label="Follow on X"
+            icon={XIcon}
+          />
           <SocialLink
             href="https://www.instagram.com/ebubedev/"
             aria-label="Follow on Instagram"

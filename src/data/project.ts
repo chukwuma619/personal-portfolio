@@ -2,7 +2,7 @@ export const projects = [
     {
       name: "Votez",
       description:
-        "Streamling voter management to enhance election participation and transparency",
+        "Streamlining voter management to enhance election participation and transparency",
       link: { href: "https://tryvotez.com", label: "tryvotez.com" },
       logo: '/votez.svg',
     },
