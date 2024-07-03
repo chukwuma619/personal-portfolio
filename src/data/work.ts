@@ -12,7 +12,7 @@ export let resume: Array<RoleType> = [
   {
     company: "Freelancer",
     title: "Web Developer",
-    start: "01-10-2023",
+    start: "12-11-2022",
     end: {
       label: "Present",
       dateTime: new Date().getFullYear().toString(),
@@ -27,7 +27,7 @@ export let resume: Array<RoleType> = [
   {
     company: "JARS SOLUTIONS LIMITED",
     title: "Intern Software Engineer",
-    start: "01-10-2023",
+    start: "04-10-2023",
     end: "01-03-2024",
   },
   
