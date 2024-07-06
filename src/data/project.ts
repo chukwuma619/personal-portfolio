@@ -13,5 +13,12 @@ export const projects = [
       link: { href: "#", label: "github.com" },
        logo: "/profile-image.JPG",
     },
+    {
+      name: "Backend-Fanbuck",
+      description:
+        "Empowering individuals to raise funds for personal projects through secure, anonymous donations.",
+      link: { href: "#", label: "github.com" },
+       logo: "/fanbuck.png",
+    },
    
   ];
