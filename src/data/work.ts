@@ -10,25 +10,33 @@ export type RoleType = {
 
 export let resume: Array<RoleType> = [
   {
-    company: "Freelancer",
-    title: "Web Developer",
-    start: "12-11-2022",
-    end: {
-      label: "Present",
-      dateTime: new Date().getFullYear().toString(),
-    },
+    company: "Outbrand",
+    title: "Senior Software Engineer",
+    start: "01-04-2025",
+    end: "01-08-2025",
   },
   {
-    company: "JARS SOLUTIONS LIMITED",
-    title: "Software Engineer I",
-    start: "01-03-2024",
+    company: "Saylo",
+    title: "Senior Software Engineer",
+    start: "01-01-2024",
+    end: "01-08-2025",
+  },
+  {
+    company: "Qura AI",
+    title: "Senior Software Engineer",
+    start: "01-04-2024",
+    end: "01-03-2025",
+  },
+  {
+    company: "Jars Global",
+    title: "Software Engineer II",
+    start: "01-10-2023",
     end: "01-05-2024",
   },
   {
-    company: "JARS SOLUTIONS LIMITED",
-    title: "Intern Software Engineer",
-    start: "04-10-2023",
-    end: "01-03-2024",
+    company: "Freelance",
+    title: "Software Engineer",
+    start: "01-02-2021",
+    end: "01-10-2023",
   },
-  
 ];

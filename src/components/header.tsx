@@ -69,7 +69,7 @@ export default function Header() {
         </div>
 
         <Button
-          href="/Chukwuma Ebube Resume.pdf"
+          href="https://docs.google.com/document/d/1uOxdLpFzQREQ1POE0QycPUiHkYcuVO0hNBblFEHZqUU/edit?usp=sharing"
           download
           variant="secondary"
           className="group mt-6 w-full"
