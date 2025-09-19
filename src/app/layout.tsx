@@ -7,20 +7,10 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Chukwuma Ebube - Software Engineer | Portfolio",
+  title: "Chukwuma Ebube - Senior Software Engineer ",
   description:
-    "Chukwuma Ebube is a Software Engineer based in Nigeria, specializing in building exceptional websites and applications with a focus on accessibility.",
-  keywords: [
-    "Software Engineer",
-    "Backend Engineer",
-    "Frontend Engineer",
-    "Web Developer",
-    "Nigeria",
-    "Accessible Web Development",
-    "Portfolio",
-    "Websites",
-    "Applications",
-  ],
+    "Senior Software Engineer specializing in modern web development with Next.js, React, TypeScript, and AI technologies.",
+
 };
 
 export default function RootLayout({

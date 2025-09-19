@@ -49,7 +49,7 @@ export default function Header() {
           <Image
             className="w-full"
             src={"/profile-image.JPG"}
-            alt=""
+            alt="Chukwuma Ebube - Senior Software Engineer professional headshot"
             width={250}
             height={250}
             sizes="(min-width: 1024px) 20rem, (min-width: 640px) 16rem, 12rem"
