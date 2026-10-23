@@ -13,7 +13,7 @@ export default function Education() {
   const endLabel = formatDate(item.end);
 
   return (
-    <div className="py-8 sm:py-10">
+    <div className="py-8 sm:py-10 lg:hidden">
       <Container>
         <h2 className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
           Education
