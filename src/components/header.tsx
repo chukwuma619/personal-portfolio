@@ -23,6 +23,7 @@ function ArrowDownIcon(props: React.ComponentPropsWithoutRef<"svg">) {
     </svg>
   );
 }
+
 export default function Header() {
   return (
     <header className="lg:fixed lg:inset-y-0 lg:left-0 lg:flex lg:w-112 lg:items-start lg:overflow-y-auto xl:w-120">
@@ -32,54 +33,66 @@ export default function Header() {
         </div>
 
         <p className="text-sm text-zinc-400 dark:text-zinc-500">
-          &copy; {new Date().getFullYear()} Chukwuma Ebube. All rights reserved.
+          &copy; {new Date().getFullYear()} Ebube Chukwuma. All rights reserved.
         </p>
       </div>
-      <div className="pointer-events-auto z-50 fixed top-4 left-2 md:hidden ">
+      <div className="pointer-events-auto z-50 fixed top-4 left-2 md:hidden">
         <ThemeToggle />
       </div>
       <MobileNavigation className="pointer-events-auto z-50 top-4 right-2 fixed md:hidden" />
 
-      <div className="relative z-10 mx-auto px-4 pb-4 pt-10 sm:px-6 md:max-w-2xl md:px-4 lg:min-h-full lg:flex-auto lg:border-x lg:border-zinc-200 lg:dark:border-zinc-500 lg:px-8 lg:py-12 xl:px-12">
+      <div className="relative z-10 mx-auto px-4 pb-6 pt-20 sm:px-6 md:max-w-2xl md:px-4 lg:min-h-full lg:flex-auto lg:border-x lg:border-zinc-200 lg:px-8 lg:py-8 lg:dark:border-zinc-500 xl:px-12">
         <Link
           href="/"
-          className="relative mx-auto block w-48 overflow-hidden rounded-lg bg-zinc-200 dark:bg-zinc-500 shadow-xl shadow-zinc-100 dark:shadow-zinc-100/10 sm:w-64 sm:rounded-xl lg:w-auto lg:rounded-2xl"
+          className="relative mx-auto block w-36 overflow-hidden rounded-lg bg-zinc-200 shadow-xl shadow-zinc-100 dark:bg-zinc-500 dark:shadow-zinc-100/10 sm:w-40 sm:rounded-xl lg:w-48 lg:rounded-2xl"
           aria-label="Homepage"
         >
           <Image
             className="w-full"
-            src={"/profile-image.JPG"}
-            alt="Chukwuma Ebube - Senior Software Engineer professional headshot"
-            width={250}
-            height={250}
-            sizes="(min-width: 1024px) 20rem, (min-width: 640px) 16rem, 12rem"
+            src="/profile-image.JPG"
+            alt="Ebube Chukwuma - Senior Software Engineer professional headshot"
+            width={192}
+            height={192}
+            sizes="(min-width: 1024px) 12rem, 10rem"
             priority
           />
           <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10 sm:rounded-xl lg:rounded-2xl" />
         </Link>
-        <div className="mt-10 text-center lg:mt-12 lg:text-left">
-          <h1 className="text-3xl text-center font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            Chukwuma Ebube
+        <div className="mt-6 text-center lg:text-left">
+          <h1 className="text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
+            Ebube Chukwuma
           </h1>
-          <p className="mt-6 text-base text-center text-zinc-600 dark:text-zinc-400">
-            I&apos;m a Software Engineer based in Nigeria. I specialize in
-            building exceptional websites and applications, focusing on making
-            the web accessible to everyone.
+          <p className="mt-2 text-sm font-medium text-teal-500">
+            Senior Software Engineer
+          </p>
+          <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
+            I design and ship new products — SaaS, desktop, and AI — from
+            architecture to production. Currently building{" "}
+            <a
+              href="https://www.ailurn.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-zinc-800 underline decoration-zinc-300 underline-offset-2 hover:text-teal-500 hover:decoration-teal-500 dark:text-zinc-100 dark:decoration-zinc-600 dark:hover:text-teal-400 dark:hover:decoration-teal-400"
+            >
+              Ailurn
+            </a>
+            .
           </p>
         </div>
 
         <Button
-          href="https://docs.google.com/document/d/1uOxdLpFzQREQ1POE0QycPUiHkYcuVO0hNBblFEHZqUU/edit?usp=sharing"
-          download
+          href="https://docs.google.com/document/d/1uOxdLpFzQREQ1POE0QycPUiHkYcuVO0hNBblFEHZqUU/export?format=pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           variant="secondary"
           className="group mt-6 w-full"
         >
           Download CV
           <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
         </Button>
-        <div className="mt-6 flex items-center justify-center gap-6">
+        <div className="mt-6 flex items-center justify-center gap-6 lg:justify-start">
           <SocialLink
-            href="https://twitter.com/ebubedev"
+            href="https://x.com/ebubedev"
             aria-label="Follow on X"
             icon={XIcon}
           />

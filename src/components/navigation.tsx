@@ -1,15 +1,25 @@
-'use client'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+"use client";
+
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import {
   Popover,
   PopoverButton,
   PopoverBackdrop,
   PopoverPanel,
-} from '@headlessui/react'
-import clsx from 'clsx'
+} from "@headlessui/react";
+import clsx from "clsx";
 
-function CloseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+const navItems = [
+  { href: "#projects", label: "Projects" },
+  { href: "#works", label: "Work" },
+  { href: "#skills", label: "Skills" },
+  { href: "#contact", label: "Contact" },
+] as const;
+
+const sectionIds = navItems.map((item) => item.href.slice(1));
+
+function CloseIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
       <path
@@ -21,10 +31,10 @@ function CloseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
-function ChevronDownIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+function ChevronDownIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
     <svg viewBox="0 0 8 6" aria-hidden="true" {...props}>
       <path
@@ -35,16 +45,54 @@ function ChevronDownIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
+function useActiveSection() {
+  const [activeHref, setActiveHref] = useState<string>(navItems[0].href);
+
+  useEffect(() => {
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => section !== null);
+
+    if (sections.length === 0) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        const id = visible[0]?.target.id;
+
+        if (id) {
+          setActiveHref(`#${id}`);
+        }
+      },
+      {
+        rootMargin: "-24% 0px -60% 0px",
+        threshold: [0, 0.2, 0.4],
+      },
+    );
+
+    for (const section of sections) {
+      observer.observe(section);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return activeHref;
+}
 
 function MobileNavItem({
   href,
   children,
 }: {
-  href: string
-  children: React.ReactNode
+  href: string;
+  children: React.ReactNode;
 }) {
   return (
     <li>
@@ -52,7 +100,7 @@ function MobileNavItem({
         {children}
       </PopoverButton>
     </li>
-  )
+  );
 }
 
 export function MobileNavigation(
@@ -83,36 +131,36 @@ export function MobileNavigation(
         </div>
         <nav className="mt-6">
           <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
-            <MobileNavItem href="#works">Works</MobileNavItem>
-            <MobileNavItem href="#project">Projects</MobileNavItem>
-            <MobileNavItem href="#skils">Skills</MobileNavItem>
-            <MobileNavItem href="#contact">Contact</MobileNavItem>
+            {navItems.map((item) => (
+              <MobileNavItem key={item.href} href={item.href}>
+                {item.label}
+              </MobileNavItem>
+            ))}
           </ul>
         </nav>
       </PopoverPanel>
     </Popover>
-  )
+  );
 }
 
 function NavItem({
   href,
   children,
+  isActive,
 }: {
-  href: string
-  children: React.ReactNode
+  href: string;
+  children: React.ReactNode;
+  isActive: boolean;
 }) {
-    let pathname = usePathname()
-  let isActive = pathname === href
-
   return (
     <li>
       <Link
         href={href}
         className={clsx(
-          'relative block px-3 py-2 transition',
+          "relative block px-3 py-2 transition",
           isActive
-            ? 'text-teal-500 dark:text-teal-400'
-            : 'hover:text-teal-500 dark:hover:text-teal-400',
+            ? "text-teal-500 dark:text-teal-400"
+            : "hover:text-teal-500 dark:hover:text-teal-400",
         )}
       >
         {children}
@@ -121,20 +169,27 @@ function NavItem({
         )}
       </Link>
     </li>
-  )
+  );
 }
 
-export function DesktopNavigation(props: React.ComponentPropsWithoutRef<'nav'>) {
+export function DesktopNavigation(
+  props: React.ComponentPropsWithoutRef<"nav">,
+) {
+  const activeHref = useActiveSection();
+
   return (
     <nav {...props}>
       <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
-        <NavItem href="#works">Works</NavItem>
-        <NavItem href="#projects">Projects</NavItem>
-        <NavItem href="#skills">Skills</NavItem>
-        <NavItem href="#contact">Contact</NavItem>
+        {navItems.map((item) => (
+          <NavItem
+            key={item.href}
+            href={item.href}
+            isActive={activeHref === item.href}
+          >
+            {item.label}
+          </NavItem>
+        ))}
       </ul>
     </nav>
-  )
+  );
 }
-
-

@@ -1,58 +1,38 @@
 import { resume } from "@/data/work";
+import { formatDate } from "@/lib/format-date";
 import { Container } from "./container";
-
-function formatDate(date: string) {
-  const [day, month, year] = date.split("-").map(Number);
-  const dateInstance = new Date(year, month - 1, day);
-  
-  const months: Array<string> = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  return `${months[dateInstance.getMonth()]} ${dateInstance.getFullYear()}`;
-}
 
 export default function Works() {
   return (
-    <div id="works" className="py-24 sm:py-32">
+    <div id="works" className="scroll-mt-24 py-16 sm:py-20">
       <Container>
-        <h2 className="flex text-lg font-semibold items-center text-teal-500">
-          Work Experiences
+        <h2 className="text-2xl font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+          Work
         </h2>
+        <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+          Consulting runs alongside employed roles.
+        </p>
       </Container>
-      <ol className="space-y-4 lg:border-t divide-y divide-zinc-100 dark:divide-zinc-100/10 sm:mt-4 lg:mt-8 border-zinc-100  dark:border-zinc-100/10">
+      <ol className="divide-y divide-zinc-100 border-zinc-100 sm:mt-4 lg:mt-6 lg:border-t dark:divide-zinc-100/10 dark:border-zinc-100/10">
         {resume.map((role, roleIndex) => {
-          let startLabel =
+          const startLabel =
             typeof role.start === "string"
               ? formatDate(role.start)
               : role.start.label;
-          let startDate =
+          const startDate =
             typeof role.start === "string" ? role.start : role.start.dateTime;
 
-          let endLabel =
+          const endLabel =
             typeof role.end === "string"
               ? formatDate(role.end)
               : role.end.label;
-          let endDate =
+          const endDate =
             typeof role.end === "string" ? role.end : role.end.dateTime;
           return (
             <li
               key={roleIndex}
-              className="flex gap-4 py-2 sm:py-4 mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0"
+              className="mx-auto flex gap-4 px-4 py-4 sm:px-6 sm:py-5 md:max-w-2xl md:px-4 lg:px-0"
             >
-              {/* <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-                      <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
-                    </div> */}
               <dl className="flex flex-auto flex-wrap gap-x-2">
                 <dt className="sr-only">Company</dt>
                 <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
@@ -70,6 +50,20 @@ export default function Works() {
                   <time dateTime={startDate}>{startLabel}</time>{" "}
                   <span aria-hidden="true">—</span>{" "}
                   <time dateTime={endDate}>{endLabel}</time>
+                </dd>
+                <dt className="sr-only">Highlights</dt>
+                <dd className="mt-3 w-full">
+                  <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+                    {role.highlights.map((highlight) => (
+                      <li key={highlight} className="flex gap-2">
+                        <span
+                          className="mt-2 h-1 w-1 flex-none rounded-full bg-teal-500"
+                          aria-hidden="true"
+                        />
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </dd>
               </dl>
             </li>

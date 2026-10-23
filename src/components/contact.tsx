@@ -1,12 +1,5 @@
 import { Container } from "./container";
-import {
-  GitHubIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  SocialLinkWithLabel,
-  SocialLink,
-  XIcon,
-} from "@/components/social-icons";
+import { SocialLinkWithLabel } from "@/components/social-icons";
 
 function MailIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
@@ -30,13 +23,18 @@ function MailIcon(props: React.ComponentPropsWithoutRef<"svg">) {
     </svg>
   );
 }
+
 export default function Contact() {
   return (
-    <div id="contact" className="py-24 sm:py-32">
+    <div id="contact" className="scroll-mt-24 py-16 sm:py-20">
       <Container>
-        <h2 className="flex text-center text-2xl font-semibold items-center text-zinc-900 dark:text-zinc-100">
-          Want us to work together ?
+        <h2 className="text-2xl font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+          Want to work together?
         </h2>
+        <p className="mt-3 max-w-md text-sm text-zinc-600 dark:text-zinc-400">
+          I am available for senior full-stack and 0-to-1 product work. Email is
+          the fastest way to reach me.
+        </p>
 
         <ul className="mt-6">
           <SocialLinkWithLabel
@@ -44,34 +42,6 @@ export default function Contact() {
             icon={MailIcon}
           >
             chukwuma619@gmail.com
-          </SocialLinkWithLabel>
-          <SocialLinkWithLabel
-            href="https://twitter.com/ebubedev"
-            icon={XIcon}
-            className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
-          >
-            Follow on X
-          </SocialLinkWithLabel>
-          <SocialLinkWithLabel
-            href="https://www.instagram.com/ebubedev/"
-            icon={InstagramIcon}
-            className="mt-4"
-          >
-            Follow on Instagram
-          </SocialLinkWithLabel>
-          <SocialLinkWithLabel
-            href="https://github.com/chukwuma619"
-            icon={GitHubIcon}
-            className="mt-4"
-          >
-            Follow on GitHub
-          </SocialLinkWithLabel>
-          <SocialLinkWithLabel
-            href="https://www.linkedin.com/in/ebubedev/"
-            icon={LinkedInIcon}
-            className="mt-4"
-          >
-            Follow on LinkedIn
           </SocialLinkWithLabel>
         </ul>
       </Container>

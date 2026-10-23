@@ -7,10 +7,15 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Chukwuma Ebube - Senior Software Engineer ",
+  title: "Ebube Chukwuma — Senior Software Engineer",
   description:
-    "Senior Software Engineer specializing in modern web development with Next.js, React, TypeScript, and AI technologies.",
-
+    "I design and ship new products — SaaS, desktop, and AI — from architecture to production. Currently building Ailurn.",
+  openGraph: {
+    title: "Ebube Chukwuma — Senior Software Engineer",
+    description:
+      "I design and ship new products — SaaS, desktop, and AI — from architecture to production. Currently building Ailurn.",
+    images: ["/profile-image.JPG"],
+  },
 };
 
 export default function RootLayout({
