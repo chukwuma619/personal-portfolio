@@ -44,19 +44,18 @@ export default function Header() {
       <div className="relative z-10 mx-auto px-4 pb-6 pt-20 sm:px-6 md:max-w-2xl md:px-4 lg:min-h-full lg:flex-auto lg:border-x lg:border-zinc-200 lg:px-8 lg:py-8 lg:dark:border-zinc-500 xl:px-12">
         <Link
           href="/"
-          className="relative mx-auto block w-36 overflow-hidden rounded-lg bg-zinc-200 shadow-xl shadow-zinc-100 dark:bg-zinc-500 dark:shadow-zinc-100/10 sm:w-40 sm:rounded-xl lg:w-48 lg:rounded-2xl"
+          className="relative mx-auto block w-36 overflow-hidden rounded-lg bg-stone-100 ring-1 ring-zinc-900/5 sm:w-40 sm:rounded-xl lg:w-48 lg:rounded-2xl dark:bg-stone-200 dark:ring-white/10"
           aria-label="Homepage"
         >
           <Image
             className="w-full"
-            src="/profile-image.JPG"
-            alt="Ebube Chukwuma - Senior Software Engineer professional headshot"
+            src="/mascot.jpg"
+            alt="Red panda mascot for Ebube Chukwuma"
             width={192}
             height={192}
             sizes="(min-width: 1024px) 12rem, 10rem"
             priority
           />
-          <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10 sm:rounded-xl lg:rounded-2xl" />
         </Link>
         <div className="mt-6 text-center lg:text-left">
           <h1 className="text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
